@@ -8,7 +8,7 @@ Created from templates made available by Stagehand under a BSD-style
 A simple usage example:
 
 ```dart
-import 'package:bloom_filter/bloom_filter.dart';
+import 'package:simple_bloom_filter/simple_bloom_filter.dart';
 
 main() {
   var awesome = new Awesome();

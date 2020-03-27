@@ -1,12 +1,12 @@
-import 'package:bloom_filter/bloom_filter.dart';
+import 'package:simple_bloom_filter/simple_bloom_filter.dart';
 import 'package:test/test.dart';
 
 void main() {
   group('A group of tests', () {
-    BloomFilter bloom;
+    simple_bloom_filter bloom;
 
     setUp(() {
-      bloom = BloomFilter(10000, 3);
+      bloom = simple_bloom_filter(10000, 3);
     });
 
     test('First Test', () {

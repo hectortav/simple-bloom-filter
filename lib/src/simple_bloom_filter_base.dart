@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:math';
 
-class BloomFilter {
+class simple_bloom_filter {
   final int _size;
   final int _hashNum;
   List<int> hashList;
@@ -11,7 +11,7 @@ class BloomFilter {
   //m number of bits in the array
   //n the elements
   //k number of hash functions
-  BloomFilter(size, hashCount)
+  simple_bloom_filter(size, hashCount)
     : _size = size,
      bitArray = List.filled(size, false),
      _hashNum = hashCount,

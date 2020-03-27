@@ -1,7 +1,7 @@
-import 'package:bloom_filter/bloom_filter.dart';
+import 'package:simple_bloom_filter/simple_bloom_filter.dart';
 
 void main() {
-  var bloom = BloomFilter(10000, 3);
+  var bloom = simple_bloom_filter(10000, 3);
 
   bloom.add('hello world');
   bloom.add(1234567890.toString());
