@@ -1,13 +1,12 @@
 name: simple_bloom_filter
-description: A starting point for Dart libraries or applications.
-version: 0.1.0
+description: A simple bloom filter implementation in Dart. 
+  Bloom filters are a space-efficient probabilistic data structure that is 
+  used to test whether an element is a member of a set.
+version: 0.1.2
 homepage: https://github.com/hectortav/bloom-filter
 
 environment:
   sdk: '>=2.7.0 <3.0.0'
-
-#dependencies:
-#  path: ^1.6.0
 
 dev_dependencies:
   pedantic: ^1.8.0

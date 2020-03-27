@@ -1,22 +1,23 @@
-A library for Dart developers.
+# decamelize 🎯
 
-Created from templates made available by Stagehand under a BSD-style
-[license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
+A simple Dart implementation of a bloom filter. [Bloom filters](https://en.wikipedia.org/wiki/Bloom_filter) are a space-efficient probabilistic data structure that is used to test whether an element is a member of a set.
 
-## Usage
-
-A simple usage example:
+## usage
 
 ```dart
-import 'package:simple_bloom_filter/simple_bloom_filter.dart';
-
-main() {
-  var awesome = new Awesome();
+var bloom = simple_bloom_filter(10000, 3);
+bloom.add('hello world');
+if (bloom.check('hello world') == true) {
+    print('"hello world" PROBABLY exists...');
 }
 ```
 
-## Features and bugs
+## Features
 
-Please file feature requests and bugs at the [issue tracker][tracker].
+- Choose size of bit array
+- Choose number of hash functions
 
-[tracker]: http://example.com/issues/replaceme
+## Features to come
+
+- Better hash functions
+- Choose false positive probability
