@@ -1,3 +1,7 @@
+## 0.1.3
+
+- Fix name in README
+
 ## 0.1.2
 
 - Update README

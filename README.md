@@ -1,4 +1,4 @@
-# decamelize 🎯
+# simple_bloom_filter 🎯
 
 A simple Dart implementation of a bloom filter. [Bloom filters](https://en.wikipedia.org/wiki/Bloom_filter) are a space-efficient probabilistic data structure that is used to test whether an element is a member of a set.
 
