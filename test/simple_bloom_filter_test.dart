@@ -10,13 +10,13 @@ void main() {
       bloom.add('hello world');
       bloom.add('this is just a test');
       bloom.add('Dart is fun!');
-      bloom.addInt(1234567890);
+      bloom.add(1234567890);
       bloom.add('{"first-name": "Dart", "last-name": "lang"}');
 
       expect(bloom.check('hello world'), isTrue);
       expect(bloom.check('this is just a test'), isTrue);
       expect(bloom.check('Dart is fun!'), isTrue);
-      expect(bloom.check(1234567890.toString()), isTrue);
+      expect(bloom.check(1234567890), isTrue);
       expect(bloom.check('{"first-name": "Dart", "last-name": "lang"}'), isTrue);
       expect(bloom.check('{"first-name": "Go", "last-name": "lang"}'), isFalse);
     });
@@ -38,8 +38,8 @@ void main() {
       final searhList = List.generate(searchSize, (index) => random.nextInt((testSize / matchRate).floor()));
       final bloom = SimpleBloomFilter(testSize);
       _printTime('Starting Bloom search $searchSize elements in list with $testSize elements');
-      bloom.addAllInts(testList);
-      final toCheck = searhList.where(bloom.checkInt).length;
+      bloom.addAll(testList);
+      final toCheck = searhList.where(bloom.check).length;
       _printTime('found $toCheck possible matches, ${searchSize - toCheck} are not needed to check');
       _printTime('Starting normal search $searchSize elements in list with $testSize elements');
       final total = searhList.where((e) => testList.contains(e)).length;

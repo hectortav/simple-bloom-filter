@@ -10,20 +10,11 @@ class SimpleBloomFilter {
   }
 
   /// Add the value's hash to the bitArray
-  void add(String key) => bitArray[key.hashCode % size] = true;
-
-  /// Add the int's hash to the bitArray
-  void addInt(int key) => add(key.toString());
+  void add(Object key) => bitArray[key.hashCode % size] = true;
 
   /// Add all values' hash to the bitArray
-  void addAll(List<String> keys) => keys.forEach(add);
-
-  /// Add all ints' hash to the bitArray
-  void addAllInts(List<int> keys) => keys.forEach(addInt);
+  void addAll(List<Object> keys) => keys.forEach(add);
 
   /// check if the value's hash is in the bitArray
-  bool check(String key) => bitArray[key.hashCode % size];
-
-  /// check if the int's hash is in the bitArray
-  bool checkInt(int key) => check(key.toString());
+  bool check(Object key) => bitArray[key.hashCode % size];
 }
