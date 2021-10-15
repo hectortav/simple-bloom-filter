@@ -4,7 +4,7 @@ void main() {
   final bloom = SimpleBloomFilter(10000);
 
   bloom.add('hello world');
-  bloom.add(1234567890.toString());
+  bloom.add(1234567890);
   bloom.add('{"first-name": "Dart", "last-name": "lang"}');
 
   if (bloom.check('hello world') == true) {
@@ -12,7 +12,7 @@ void main() {
   } else {
     print('"hello world" DEFINITELY does not exist...');
   }
-  if (bloom.check(1234567890.toString()) == true) {
+  if (bloom.check(1234567890) == true) {
     print('"1234567890" PROBABLY exists...');
   } else {
     print('"1234567890" DEFINITELY does not exist...');

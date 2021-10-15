@@ -2,7 +2,8 @@
 
 - Nullsafety
 - Renamed to SimpleBloomFilter
-- Added addAll and addInt/checkInt functions
+- Added addAll
+- Use Objects instead of Strings
 - Removed hashList and use hashcode instead to improve performance drastically
 
 ## 0.1.3
