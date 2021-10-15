@@ -1,58 +1,29 @@
-import 'dart:convert';
-import 'dart:math';
+class SimpleBloomFilter {
+  final int size;
+  late final List<bool> bitArray;
 
-class simple_bloom_filter {
-  final int _size;
-  final int _hashNum;
-  List<int> hashList;
-  List<bool> bitArray;
-  final int _min;
-  final int _max;
-  //m number of bits in the array
-  //n the elements
-  //k number of hash functions
-  simple_bloom_filter(size, hashCount)
-    : _size = size,
-     bitArray = List.filled(size, false),
-     _hashNum = hashCount,
-     _min = 1000,
-     _max = 9999;
-
-  void generateHashes() {
-    hashList = List(_hashNum);
-    for(var i = 0; i < _hashNum; i++) {
-      hashList[i] = _min + Random().nextInt(_max - _min);
-    }
+  /// The bitArray is generated with length [size] and
+  /// the values added are mod with the same [size].
+  /// To determine this size, see https://corte.si/posts/code/bloom-filter-rules-of-thumb/
+  SimpleBloomFilter(this.size) {
+    bitArray = List.filled(size, false);
   }
 
-  BigInt _hash(String key, int hashInt) {
-    var hash = BigInt.from(hashInt);
-    var keyList = utf8.encode(key);
-    int char;
-    for (char in keyList) {
-      hash = ((hash << 5) + hash) + BigInt.from(char);
-    }
-    return hash;
-  }
+  /// Add the value's hash to the bitArray
+  void add(String key) => bitArray[key.hashCode % size] = true;
 
-  void add(String key) {
-    if (hashList == null) {
-      generateHashes();
-    }
-    for (var hash in hashList) {
-      bitArray[(_hash(key, hash) % BigInt.from(_size)).toInt()] = true;
-    }
-  }
+  /// Add the int's hash to the bitArray
+  void addInt(int key) => add(key.toString());
 
-  bool check(String key) {
-    if (hashList == null) {
-      return false;
-    }
-    for (var hash in hashList) {
-      if (bitArray[(_hash(key, hash) % BigInt.from(_size)).toInt()]) {
-        return true;
-      }
-    }
-    return false;
-  }
+  /// Add all values' hash to the bitArray
+  void addAll(List<String> keys) => keys.forEach(add);
+
+  /// Add all ints' hash to the bitArray
+  void addAllInts(List<int> keys) => keys.forEach(addInt);
+
+  /// check if the value's hash is in the bitArray
+  bool check(String key) => bitArray[key.hashCode % size];
+
+  /// check if the int's hash is in the bitArray
+  bool checkInt(int key) => check(key.toString());
 }

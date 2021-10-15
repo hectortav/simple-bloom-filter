@@ -5,7 +5,7 @@ A simple Dart implementation of a bloom filter. [Bloom filters](https://en.wikip
 ## usage
 
 ```dart
-var bloom = simple_bloom_filter(10000, 3);
+final bloom = SimpleBloomFilter(10000);
 bloom.add('hello world');
 if (bloom.check('hello world') == true) {
     print('"hello world" PROBABLY exists...');
@@ -15,7 +15,6 @@ if (bloom.check('hello world') == true) {
 ## Features
 
 - Choose size of bit array
-- Choose number of hash functions
 
 ## Features to come
 
