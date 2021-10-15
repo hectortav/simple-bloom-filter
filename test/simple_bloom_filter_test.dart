@@ -28,6 +28,12 @@ void main() {
       _lastTime = now;
     }
 
+    // ...566 (0): Setting up the test...
+    // ...576 (10): Starting Bloom search 5000 elements in list with 50000 elements
+    // ...579 (3): found 2780 possible matches, 2220 are not needed to check
+    // ...579 (0): Starting normal search 5000 elements in list with 50000 elements
+    // ...831 (252): found 347 matches
+    // ✓ A group of tests Speed check
     test('Speed check', () {
       _printTime('Setting up the test...');
       final random = Random();
