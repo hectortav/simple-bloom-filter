@@ -1,3 +1,11 @@
+## 1.0.0
+
+- Nullsafety
+- Renamed to SimpleBloomFilter
+- Added addAll
+- Use Objects instead of Strings
+- Removed hashList and use hashcode instead to improve performance drastically
+
 ## 0.1.3
 
 - Fix name in README
